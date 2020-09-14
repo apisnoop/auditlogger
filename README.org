@@ -18,7 +18,7 @@ helm install auditlogger -n apisnoop chart/auditlogger
 | replicaCount                                | Pod replicas                                                   | 1                                                               |
 | postgresConnectionString                    | Postgres connection string for SnoopDB                         | ~postgres://apisnoop:apisnoop@snoopdb/apisnoop?sslmode=disable~ |
 | auditEventTable                             | Postgres table to write live audit events to                   | ~table.audit_event~                                             |
-| noDebug                                     | Disable debug logs                                   | ~false~                                                         |
+| noDebug                                     | Disable debug logs                                             | ~false~                                                         |
 | image.repository                            | The repo where the image lives                                 | gcr.io/apisnoop/auditlogger                                     |
 | image.tag                                   | Specifies a tag of from the image to use                       | ~nil~                                                           |
 | image.pullPolicy                            | container pull policy                                          | IfNotPresent                                                    |
@@ -52,10 +52,6 @@ helm install auditlogger -n apisnoop chart/auditlogger
 | realIPHeader                                | a HTTP header to use for forwarding the real IP address        | ~""~                                                            |
 | labels                                      | declare labels for all resources                               | ~{}~                                                            |
 | annotations                                 | declare annotations for all resources                          | ~{}~                                                            |
-| ingress.enabled                             | create an ingress manifests                                    | false                                                           |
-| ingress.annotations                         | set annotations for the ingress manifest                       | ~{}~                                                            |
-| ingress.hosts                               | the hosts which the ingress endpoint should be accessed from   |                                                                 |
-| ingress.tls                                 | references to TLS secrets                                      | ~[]~                                                            |
 | resources.limits.cpu                        | max amount of CPU                                              | 250m                                                            |
 | resources.limits.memory                     | max amount of memory                                           | 40Mi                                                            |
 | resources.resources.cpu                     | requested amount of CPU                                        | 250m                                                            |
@@ -63,7 +59,6 @@ helm install auditlogger -n apisnoop chart/auditlogger
 | nodeSelector                                | delcare the node labels for Pod scheduling                     | ~{}~                                                            |
 | tolerations                                 | declare the toleration labels for Pod scheduling               | ~[]~                                                            |
 | affinity                                    | declare the affinity settings for the Pod scheduling           | ~{}~                                                            |
-
 
 ** Cluster
 The cluster must be configured with audit policies and audit policy webhooks enabled, pointing to http://10.96.96.96:9900/events.
