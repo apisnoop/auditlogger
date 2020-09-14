@@ -13,6 +13,9 @@ helm install auditlogger -n apisnoop chart/auditlogger
 
 * Configuration
 ** Deployment
+
+**Helm values**
+
 | Parameter                                   | Description                                                    | Default                                                         |
 |---------------------------------------------+----------------------------------------------------------------+-----------------------------------------------------------------|
 | replicaCount                                | Pod replicas                                                   | 1                                                               |
