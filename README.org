@@ -1,0 +1,12 @@
+#+TITLE: AuditLogger
+
+* Introduction
+
+Part of the APISnoop suite of software, AuditLogger's goal is to recieve Kubernetes API server events and load them into a live APISnoop database running in-cluster.
+
+* Deploying
+** Kubernetes
+
+#+begin_src shell
+helm install auditlogger -n apisnoop chart/auditlogger
+#+end_src
